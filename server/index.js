@@ -4,8 +4,9 @@ const express = require("express");
 const cors = require("cors");
 const PORT = process.env.PORT;
 const app = express();
-
 const { connection } = require("./config/db");
+
+const {authRouter} = require('./routes/auth/auth.route');
 
 // Middleware
 app.use(express.json());
@@ -15,16 +16,14 @@ app.use(
   })
 );
 
-app.get("/", (reqe, res) => {
-  res.send("Welcome to Arcade Profusion");
+app.get("/", (req, res) => {
+  res.status(200).json("Welcome to Arcade Profusion");
 });
 
-app.listen(PORT, async () => {
-  try {
-    await connection;
-    console.log({msg:"Connected to the DB !"});
-  } catch (error) {
-    console.log({error:"Connection Failed !"});
-  }
+// Routes
+app.use("/auth", authRouter); //Registration , Login , Users
+
+app.listen(PORT, () => {
+  connection();
   console.log(`Server is running at PORT : ${PORT}`);
 });
