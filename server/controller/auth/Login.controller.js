@@ -36,9 +36,11 @@ const loginController = asyncHandler(async (req, res) => {
         username: isUser.username,
         email: isUser.email,
         password: isUser.password,
+        mobile: isUser.mobile,
         gender: isUser.gender,
         dob: isUser.dob,
         age: isUser.age,
+        profile_pic: isUser.profile_pic,
         token,
       },
     });

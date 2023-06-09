@@ -17,6 +17,10 @@ authRouter.route("/register").post(
     }),
     body("gender", "Select your Gender").not().isEmpty(),
     body("dob", "Select your Date of Birth").not().isEmpty(),
+    body(
+      "mobile",
+      "Please enter your valid Mobile Number(+91 xxxx-xxx-xxx)"
+    ).isLength({ min: 10 }),
   ],
   registerController
 );

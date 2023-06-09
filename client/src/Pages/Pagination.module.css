@@ -1,0 +1,34 @@
+.pagination {
+  display: flex;
+  width: 30rem;
+  margin: auto;
+  margin-top: 5rem;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.paginationpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.currentpage {
+  background-color: blue;
+  color: white;
+}
+
+.paginationdots {
+  margin: 5px;
+}
+
+.paginationpage[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

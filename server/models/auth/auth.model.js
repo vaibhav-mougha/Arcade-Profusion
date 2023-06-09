@@ -11,6 +11,14 @@ const authSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    mobile: {
+      type: String,
+      required: true,
+    },
+    profile_pic: {
+      type: String,
+      default: "https://bit.ly/broken-link",
+    },
     password: {
       type: String,
       required: true,

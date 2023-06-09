@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt");
 const saltRounds = 6;
 
 const registerController = asyncHandler(async (req, res) => {
-  let { username, email, password, gender, dob } = req.body;
+  let { username, email, password, gender, dob, profile_pic, mobile } =
+    req.body;
 
   const dateOfBirth = new Date(dob); //YYYY-MM-DD
   const currentDate = new Date();
@@ -51,9 +52,11 @@ const registerController = asyncHandler(async (req, res) => {
       username,
       email,
       password: hashPassword,
+      mobile,
       gender,
       dob,
       age,
+      profile_pic,
     });
 
     return res.status(201).json({ msg: "Successfully Register!", createUser });
