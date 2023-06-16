@@ -6,7 +6,8 @@ const PORT = process.env.PORT;
 const app = express();
 const { connection } = require("./config/db");
 
-const {authRouter} = require('./routes/auth/auth.route');
+const { authRouter } = require("./routes/auth/auth.route");
+const { ledgerRouter } = require("./routes/ledger/ledger.route");
 
 // Middleware
 app.use(express.json());
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/auth", authRouter); //Registration , Login , Users
+app.use("/ledger", ledgerRouter); // Customer Transactions
 
 app.listen(PORT, () => {
   connection();
